@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  jenkins:
+    image: 'jenkins/jenkins:2.174-alpine'
+    ports:
+      - '8080:8080'
+      - '5000:5000'
+    environment:
+      JENKINS_HOME: '/jenkins_data'
+    volumes:
+      - './jenkins_data:/jenkins_data'
+    restart: 'always'
+    stdin_open: true
+    tty: true
